@@ -3,8 +3,33 @@ import { ArrowRight, Download, Github, Linkedin, Mail, Phone } from "lucide-reac
 import { personalInfo } from "../data/portfolio";
 
 export default function Hero() {
+  const handleDownload = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/resume.pdf');
+      if (!response.ok) throw new Error('Failed to fetch the PDF file.');
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'Siddharth_Kumar_Rai_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Download fallback triggered:', error);
+      // Clean fallback if direct fetch fails
+      const link = document.createElement('a');
+      link.href = '/resume.pdf';
+      link.download = 'Siddharth_Kumar_Rai_Resume.pdf';
+      link.click();
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+
       {/* Background Elements */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-accent/20 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] -z-10" />
@@ -42,17 +67,14 @@ export default function Hero() {
                 >
                   View Projects <ArrowRight size={20} />
                 </motion.a>
-                <motion.a
-                  href="/resume.pdf"
-                  download="Siddharth_Kumar_Rai_Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <motion.button
+                  onClick={handleDownload}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-6 py-3 md:px-8 md:py-4 bg-white/5 border border-white/10 text-white font-bold rounded-2xl flex items-center gap-2 hover:bg-white/10 transition-colors text-sm md:text-base cursor-pointer"
                 >
                   Download Resume <Download size={20} />
-                </motion.a>
+                </motion.button>
               </div>
 
               {/* Social Icons from Image */}
