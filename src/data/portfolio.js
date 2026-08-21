@@ -7,6 +7,7 @@ export const personalInfo = {
   phone: "+91 7319792636",
   github: "https://github.com/SiddharthRai22",
   linkedin: "http://www.linkedin.com/in/iam-siddharth",
+  resume: "https://drive.google.com/file/d/1RQhAn6YS4SE7cLMfY3zjGpbz84Uv1hls/view?usp=sharing",
   about: "Computer Science Engineer and Full Stack Developer specializing in MERN stack and AI-powered applications. Experienced in building scalable web solutions and integrating LLMs, LangChain, and AI Agents to create intelligent, real-time systems.",
 };
 

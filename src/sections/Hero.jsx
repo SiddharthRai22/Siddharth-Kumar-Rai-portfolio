@@ -1,32 +1,9 @@
 import { motion } from "motion/react";
 import { ArrowRight, Download, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { personalInfo } from "../data/portfolio";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 export default function Hero() {
-  const handleDownload = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('/resume.pdf');
-      if (!response.ok) throw new Error('Failed to fetch the PDF file.');
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'Siddharth_Kumar_Rai_Resume.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error('Download fallback triggered:', error);
-      // Clean fallback if direct fetch fails
-      const link = document.createElement('a');
-      link.href = '/resume.pdf';
-      link.download = 'Siddharth_Kumar_Rai_Resume.pdf';
-      link.click();
-    }
-  };
-
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
 
@@ -58,23 +35,28 @@ export default function Hero() {
                 Full Stack Developer | AI Engineer. Building the future with <span className="text-white font-medium">MERN Stack</span> and <span className="text-white font-medium">AI Intelligence</span>.
               </p>
 
-              <div className="flex flex-wrap gap-3 md:gap-4 mb-10 md:mb-12">
-                <motion.a
+              <div className="flex flex-wrap gap-4 items-center mb-10 md:mb-12">
+                <HoverBorderGradient
+                  containerClassName="rounded-full"
+                  as="a"
                   href="#projects"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 md:px-8 md:py-4 bg-accent text-bg font-bold rounded-2xl flex items-center gap-2 hover:bg-accent/90 transition-colors shadow-lg shadow-accent/20 text-sm md:text-base"
+                  className="dark:bg-black bg-neutral-950 text-white flex items-center space-x-2 px-6 py-3"
                 >
-                  View Projects <ArrowRight size={20} />
-                </motion.a>
-                <motion.button
-                  onClick={handleDownload}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 md:px-8 md:py-4 bg-white/5 border border-white/10 text-white font-bold rounded-2xl flex items-center gap-2 hover:bg-white/10 transition-colors text-sm md:text-base cursor-pointer"
+                  <span>View Projects</span>
+                  <ArrowRight size={18} />
+                </HoverBorderGradient>
+
+                <HoverBorderGradient
+                  containerClassName="rounded-full"
+                  as="a"
+                  href={personalInfo.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="dark:bg-black bg-neutral-950 text-white flex items-center space-x-2 px-6 py-3 cursor-pointer"
                 >
-                  Download Resume <Download size={20} />
-                </motion.button>
+                  <span>Resume</span>
+                  <Download size={18} />
+                </HoverBorderGradient>
               </div>
 
               {/* Social Icons from Image */}
