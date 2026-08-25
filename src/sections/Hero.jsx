@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, Download, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { personalInfo } from "../data/portfolio";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { NoiseBackground } from "@/components/ui/noise-background";
 
 export default function Hero() {
   return (
@@ -36,27 +36,41 @@ export default function Hero() {
               </p>
 
               <div className="flex flex-wrap gap-4 items-center mb-10 md:mb-12">
-                <HoverBorderGradient
-                  containerClassName="rounded-full"
-                  as="a"
-                  href="#projects"
-                  className="dark:bg-black bg-neutral-950 text-white flex items-center space-x-2 px-6 py-3"
+                <NoiseBackground
+                  containerClassName="w-fit p-[2px] rounded-full"
+                  gradientColors={[
+                    "rgb(242, 125, 38)",
+                    "rgb(255, 100, 150)",
+                    "rgb(255, 200, 100)",
+                  ]}
                 >
-                  <span>View Projects</span>
-                  <ArrowRight size={18} />
-                </HoverBorderGradient>
+                  <a
+                    href="#projects"
+                    className="h-full w-full cursor-pointer rounded-full bg-linear-to-r from-neutral-900 via-black to-neutral-900 px-6 py-3 text-white font-medium text-sm md:text-base flex items-center gap-2 shadow-[0px_1px_0px_0px_rgba(255,255,255,0.1)_inset,0px_1px_0px_0px_rgba(0,0,0,0.8)] transition-all duration-150 active:scale-98"
+                  >
+                    <span>View Projects</span>
+                    <ArrowRight size={18} />
+                  </a>
+                </NoiseBackground>
 
-                <HoverBorderGradient
-                  containerClassName="rounded-full"
-                  as="a"
-                  href={personalInfo.resume}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dark:bg-black bg-neutral-950 text-white flex items-center space-x-2 px-6 py-3 cursor-pointer"
+                <NoiseBackground
+                  containerClassName="w-fit p-[2px] rounded-full"
+                  gradientColors={[
+                    "rgb(100, 150, 255)",
+                    "rgb(255, 100, 150)",
+                    "rgb(255, 200, 100)",
+                  ]}
                 >
-                  <span>Resume</span>
-                  <Download size={18} />
-                </HoverBorderGradient>
+                  <a
+                    href={personalInfo.resume}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="h-full w-full cursor-pointer rounded-full bg-linear-to-r from-neutral-900 via-black to-neutral-900 px-6 py-3 text-white font-medium text-sm md:text-base flex items-center gap-2 shadow-[0px_1px_0px_0px_rgba(255,255,255,0.1)_inset,0px_1px_0px_0px_rgba(0,0,0,0.8)] hover:text-white/90 transition-all duration-150 active:scale-98"
+                  >
+                    <span>Download Resume</span>
+                    <Download size={18} />
+                  </a>
+                </NoiseBackground>
               </div>
 
               {/* Social Icons from Image */}
