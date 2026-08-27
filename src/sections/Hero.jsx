@@ -37,27 +37,27 @@ export default function Hero() {
 
               <div className="flex flex-wrap gap-4 items-center mb-10 md:mb-12">
                 <NoiseBackground
-                  containerClassName="w-fit p-[2px] rounded-full"
+                  containerClassName="w-fit p-2 rounded-full"
                   gradientColors={[
-                    "rgb(242, 125, 38)",
                     "rgb(255, 100, 150)",
+                    "rgb(100, 150, 255)",
                     "rgb(255, 200, 100)",
                   ]}
                 >
                   <a
                     href="#projects"
-                    className="h-full w-full cursor-pointer rounded-full bg-linear-to-r from-neutral-900 via-black to-neutral-900 px-6 py-3 text-white font-medium text-sm md:text-base flex items-center gap-2 shadow-[0px_1px_0px_0px_rgba(255,255,255,0.1)_inset,0px_1px_0px_0px_rgba(0,0,0,0.8)] transition-all duration-150 active:scale-98"
+                    className="h-full w-full cursor-pointer rounded-full bg-linear-to-r from-neutral-100 via-neutral-100 to-white px-4 py-2 text-black shadow-[0px_2px_0px_0px_var(--color-neutral-50)_inset,0px_0.5px_1px_0px_var(--color-neutral-400)] transition-all duration-100 active:scale-98 dark:from-black dark:via-black dark:to-neutral-900 dark:text-white dark:shadow-[0px_1px_0px_0px_var(--color-neutral-950)_inset,0px_1px_0px_0px_var(--color-neutral-800)] flex items-center gap-2"
                   >
                     <span>View Projects</span>
-                    <ArrowRight size={18} />
+                    <span>&rarr;</span>
                   </a>
                 </NoiseBackground>
 
                 <NoiseBackground
-                  containerClassName="w-fit p-[2px] rounded-full"
+                  containerClassName="w-fit p-2 rounded-full"
                   gradientColors={[
-                    "rgb(100, 150, 255)",
                     "rgb(255, 100, 150)",
+                    "rgb(100, 150, 255)",
                     "rgb(255, 200, 100)",
                   ]}
                 >
@@ -65,10 +65,10 @@ export default function Hero() {
                     href={personalInfo.resume}
                     target="_blank"
                     rel="noreferrer"
-                    className="h-full w-full cursor-pointer rounded-full bg-linear-to-r from-neutral-900 via-black to-neutral-900 px-6 py-3 text-white font-medium text-sm md:text-base flex items-center gap-2 shadow-[0px_1px_0px_0px_rgba(255,255,255,0.1)_inset,0px_1px_0px_0px_rgba(0,0,0,0.8)] hover:text-white/90 transition-all duration-150 active:scale-98"
+                    className="h-full w-full cursor-pointer rounded-full bg-linear-to-r from-neutral-100 via-neutral-100 to-white px-4 py-2 text-black shadow-[0px_2px_0px_0px_var(--color-neutral-50)_inset,0px_0.5px_1px_0px_var(--color-neutral-400)] transition-all duration-100 active:scale-98 dark:from-black dark:via-black dark:to-neutral-900 dark:text-white dark:shadow-[0px_1px_0px_0px_var(--color-neutral-950)_inset,0px_1px_0px_0px_var(--color-neutral-800)] flex items-center gap-2"
                   >
-                    <span>Download Resume</span>
-                    <Download size={18} />
+                    <span>Resume</span>
+                    <span>&rarr;</span>
                   </a>
                 </NoiseBackground>
               </div>
