@@ -10,9 +10,9 @@ export function NoiseBackground({
   className = "",
   containerClassName = "w-fit p-1.5 rounded-full",
   gradientColors = [
+    "rgb(242, 125, 38)",
     "rgb(255, 100, 150)",
     "rgb(100, 150, 255)",
-    "rgb(255, 200, 100)",
   ],
   noiseIntensity = 0.35,
   speed = 6,
